@@ -22,6 +22,8 @@ public class CollegeController {
     public String getCollegeID(@RequestParam String name, Model model){
         College college= collegeRepository.findByName(name);
         model.addAttribute("college",college);
+        model.addAttribute("boolTRUE",true);
+        model.addAttribute("boolFALSE",false);
         return "/college/index";
     }
 

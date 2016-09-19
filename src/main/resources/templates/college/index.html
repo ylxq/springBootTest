@@ -7,7 +7,70 @@
 </head>
 <body>
 
+text 和 utext ${} 和 *{}
 <p th:text="*{college.name}">北京大学</p>
 <p th:utext="#{home.welcome(*{college.name})}">北京大学</p>
+
+
+<div th:object="${college}">
+    <p>ID: <span th:text="*{id}">Sebastian</span>.</p>
+    @{}
+    <a th:href="*{homepage}">
+        <p>NAME: <span th:text="${#object.name}">Pepper</span>.</p>
+    </a>
+    <p>HOMEPAGE: <span th:text="*{homepage}">Saturn</span>.</p>
+</div>
+
+包含单引号的文本
+<p>
+    Now you are looking at a <span th:text="'working web application'">template file</span>.
+</p>
+
+
+<!--不包含单引号的文本错误的-->
+<!--<p>-->
+    <!--Now you are looking at a <span th:text="working web application">template file</span>.-->
+<!--</p>-->
+
+数字的<b>加减</b>OR 拼接
+<p>In two years, it will be <span th:text="2013 + 2">1494</span>.</p>
+
+判断是否为空ORFalse TRUE
+<div th:if="${boolTRUE == false}" th:text="true"></div>
+<div th:if="${boolFALSE == false}" th:text="false"></div>
+<div th:if="${college.homepage != null}" th:text="*{college.homepage}"></div>
+
+
+
+<div><p>
+<!--text 拼接-->
+1.th:text="'The name of the user is ' + ${college.name}"
+
+<span th:text="'The name of the user is ' + ${college.name}"></span>
+
+2.th:text="|Welcome to our application, ${user.name}!|"
+
+<span th:text="|The name of the user is,${college.name}!|"></span>
+
+这样写不行
+th:text="${college.id}${college.name}${college.homepage}"
+
+
+<span th:text="|${college.id}${college.name}${college.homepage}|"></span>
+</p>
+</div>
+条件表达式
+<p>
+(${execMode} == 'dev')? 'Development' : 'Production'
+</p>
+
+<p th:text="(${college.name} == '北京大学') ? '北大' : '不是北大'"></p>
+
+<p th:text="${boolTRUE} ? '北大' : '不是北大'"></p>
+
+<p th:text="${boolTRUE} ? '北大'"></p>
+
+<p th:text="${df} ?:'不是北大'"></p>
+
 </body>
 </html>
