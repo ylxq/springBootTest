@@ -1,5 +1,6 @@
 package cn.com.tao.springBoot.web;
 
+import cn.com.tao.springBoot.domain.pojo.College;
 import cn.com.tao.springBoot.domain.resporitory.CollegeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +20,8 @@ public class CollegeController {
 
     @RequestMapping(value = "/college", method = RequestMethod.GET)
     public String getCollegeID(@RequestParam String name, Model model){
-        int id= collegeRepository.findByName(name).getId();
-        model.addAttribute("id",id);
+        College college= collegeRepository.findByName(name);
+        model.addAttribute("college",college);
         return "/college/index";
     }
 

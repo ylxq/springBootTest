@@ -6,6 +6,8 @@
     <title></title>
 </head>
 <body>
-<p th:text="${id}"></p>
+
+<p th:text="*{college.name}">北京大学</p>
+<p th:utext="#{home.welcome(*{college.name})}">北京大学</p>
 </body>
 </html>
