@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * Created by taowenchen on 2016/9/5.
  */
@@ -21,9 +24,14 @@ public class CollegeController {
     @RequestMapping(value = "/college", method = RequestMethod.GET)
     public String getCollegeID(@RequestParam String name, Model model){
         College college= collegeRepository.findByName(name);
+        List<College> lists= collegeRepository.findAll();
         model.addAttribute("college",college);
         model.addAttribute("boolTRUE",true);
         model.addAttribute("boolFALSE",false);
+        model.addAttribute("date", LocalDateTime.now());
+        model.addAttribute("list", lists);
+
+
         return "/college/index";
     }
 

@@ -72,5 +72,36 @@ th:text="${college.id}${college.name}${college.homepage}"
 
 <p th:text="${df} ?:'不是北大'"></p>
 
+<p th:text="${date}"></p>
+
+<p  th:text="${{date}}"></p>
+
+<p  th:hello="${date}"></p>
+
+
+<p>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>HOMEPAGE</th>
+    </tr>
+    列表间隔写法1 th:each="col,iterStat : ${list}" th:value="${iterStat.odd}? 'odd'">
+    <tr th:each="col,iterStat : ${list}" th:value="${iterStat.odd}? 'odd'">
+        <td th:text="${col.id}">Onions</td>
+        <td th:text="${col.name}">2.41</td>
+        <td th:text="${col.homepage}">yes</td>
+    </tr>
+
+   2 th:each="col : ${list}" th:value="${colStat.odd}? 'odd'"
+    <tr th:each="col : ${list}" th:value="${colStat.odd}? 'odd'">
+        <td th:text="${col.id}">Onions</td>
+        <td th:text="${col.name}">2.41</td>
+        <td th:text="${col.homepage}">yes</td>
+    </tr>
+</table>
+</p>
+
+
 </body>
 </html>
