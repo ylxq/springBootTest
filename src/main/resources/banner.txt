@@ -1,0 +1,20 @@
+    #             #
+   #              #
+#######        ############
+#     #       #          #
+#######          #######
+#     #         #    #
+#######        #    #####
+#     #       #  #
+#######            #
+${application.version}
+The version number of your application as declared in MANIFEST.MF. For example Implementation-Version: 1.0 is printed as 1.0.
+${application.formatted-version}
+The version number of your application as declared in MANIFEST.MF formatted for display (surrounded with brackets and prefixed with v). For example (v1.0).
+${spring-boot.version}
+The Spring Boot version that you are using. For example 2.0.0.BUILD-SNAPSHOT.
+${spring-boot.formatted-version}
+The Spring Boot version that you are using formatted for display (surrounded with brackets and prefixed with v). For example (v2.0.0.BUILD-SNAPSHOT).
+${Ansi.NAME} (or ${AnsiColor.NAME}, ${AnsiBackground.NAME}, ${AnsiStyle.NAME})
+Where NAME is the name of an ANSI escape code. See AnsiPropertySource for details.
+${application.title}
